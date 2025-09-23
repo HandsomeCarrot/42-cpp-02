@@ -6,11 +6,13 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/23 19:52:09 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/23 20:07:03 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+//----------ex00----------//
 
 Fixed::Fixed(void) :
 	m_rawBits(0)
@@ -46,4 +48,12 @@ void	Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	m_rawBits = raw;
+}
+
+//----------ex01----------//
+
+Fixed::Fixed(int const number)
+{
+	std::cout << "Int constructor called" << std::endl;
+	m_rawBits = number << 8;
 }
