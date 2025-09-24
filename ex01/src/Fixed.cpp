@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/24 12:38:06 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/24 14:12:20 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ Fixed &Fixed::operator=(Fixed const &old)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (m_rawBits);
 }
 
@@ -66,13 +65,34 @@ Fixed::Fixed(float const number)
 	full = (int)number << 8;
 	fraction = number - full;
 	fraction *= 100000000;
-	setRawBits(full + (int)fraction);
+	full &= ~0xFF;
+	full |= (int)fraction & 0xFF;
+	setRawBits(full);
 }
 
+float	Fixed::toFloat(void) const
+{
+	float	inFloat;
 
+	inFloat = m_rawBits & 0xFF; //gets the last 8 bits (the fraction part)
+	while (inFloat > 1) // makes the number a fraction
+		inFloat /= 10.0;
+	inFloat += m_rawBits >> 8; //sets the full number
+	return (inFloat);
+}
+
+int	Fixed::toInt(void) const
+{
+	return (m_rawBits >> 8);
+}
 
 std::ostream	&operator<<(std::ostream &os, Fixed const &f)
 {
-	os << f.toFloat();
+	int	fractionInt;
+
+	os << f.toInt();
+	fractionInt = f.getRawBits() & 0xFF;
+	if (fractionInt > 0)
+		os << "." << fractionInt;
 	return (os);
 }
