@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/24 10:59:11 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/24 12:38:06 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,10 @@ Fixed::Fixed(float const number)
 	setRawBits(full + (int)fraction);
 }
 
-void	Fixed::operator<<(Fixed const &f)
-{
-	int	rawBits, full, fraction;
 
-	rawBits = f.getRawBits();
-	full = rawBits >> 8;
-	fraction = 0;
+
+std::ostream	&operator<<(std::ostream &os, Fixed const &f)
+{
+	os << f.toFloat();
+	return (os);
 }
