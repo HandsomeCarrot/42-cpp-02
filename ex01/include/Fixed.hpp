@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:15:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/23 19:57:59 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/24 10:34:19 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	Fixed(Fixed const &other);
 	~Fixed(void);
 
-	Fixed	&operator=(Fixed const &other);
+	Fixed	&operator=(Fixed const &old);
 
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
@@ -42,7 +42,7 @@ public:
 	Fixed(int const number);
 	Fixed(float const number);
 	
-	float	operator<<(Fixed const &f);
+	void	operator<<(Fixed const &f);
 
 	float	toFloat(void) const;
 	int		toInt(void) const;

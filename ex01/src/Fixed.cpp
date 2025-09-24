@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/23 21:40:15 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/24 10:59:11 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(Fixed const &other)
+Fixed &Fixed::operator=(Fixed const &old)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->setRawBits(other.getRawBits());
+	this->setRawBits(old.getRawBits());
 	return (*this);
 }
 
@@ -59,10 +59,21 @@ Fixed::Fixed(int const number)
 
 Fixed::Fixed(float const number)
 {
-	int num, fraction;
+	int 	full;
+	float	fraction;
 
 	std::cout << "Float constructor called" << std::endl;
-	num = (int)number << 8;
+	full = (int)number << 8;
+	fraction = number - full;
+	fraction *= 100000000;
+	setRawBits(full + (int)fraction);
+}
+
+void	Fixed::operator<<(Fixed const &f)
+{
+	int	rawBits, full, fraction;
+
+	rawBits = f.getRawBits();
+	full = rawBits >> 8;
 	fraction = 0;
-	setRawBits(num);
 }
