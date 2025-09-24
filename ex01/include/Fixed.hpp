@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:15:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/24 12:35:39 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/24 14:21:22 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
