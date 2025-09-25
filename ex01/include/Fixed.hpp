@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:15:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/24 14:21:22 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/25 13:50:18 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,27 @@
 # include <iostream>
 # include <cmath>
 
+/**
+ * @brief Represents a fixed-point number.
+ *
+ * The Fixed class encapsulates a fixed-point number. It provides basic
+ * functionality such as constructors, a destructor, and an assignment
+ * operator, while logging these operations to the standard output.
+ */
 class Fixed
 {
 private:
 
 	//-----ex00-----//
 
+	/**
+	 * @brief The raw value of the fixed-point number.
+	 */
 	int					m_rawBits;
+	/**
+	 * @brief The number of fractional bits.
+	 * @note This is a constant static member, set to 8.
+	 */
 	int static const	m_fractionalBits = 8;
 
 public:
@@ -33,7 +47,7 @@ public:
 	Fixed(Fixed const &other);
 	~Fixed(void);
 
-	Fixed	&operator=(Fixed const &old);
+	Fixed	&operator=(Fixed const &other);
 
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
