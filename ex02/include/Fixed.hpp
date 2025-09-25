@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:15:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/25 15:01:07 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/25 15:32:34 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,20 @@ public:
 	bool	operator==(Fixed const &f);
 	bool	operator!=(Fixed const &f);
 
-	//...
+	Fixed	&operator+(Fixed const &other);
+	Fixed	&operator-(Fixed const &other);
+	Fixed	&operator*(Fixed const &other);
+	Fixed	&operator/(Fixed const &other);
+
+	void	operator++(void);
+	void	operator++(int i);
+	void	operator--(void);
+	void	operator--(int i);
+
+	static Fixed	&min(Fixed &a, Fixed &b);
+	static Fixed	&min(Fixed const &a, Fixed const &b);
+	static Fixed	&max(Fixed &a, Fixed &b);
+	static Fixed	&max(Fixed const &a, Fixed const &b);
 };
 
 //-----ex01-----//

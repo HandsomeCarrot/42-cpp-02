@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/25 14:34:38 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/25 15:32:45 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,5 +171,100 @@ std::ostream	&operator<<(std::ostream &os, Fixed const &f)
 {
 	os << f.toFloat();
 	return (os);
+}
+
+//----------ex02----------//
+
+bool	Fixed::operator>(Fixed const &f)
+{
+	//TODO
+}
+
+bool	Fixed::operator<(Fixed const &f)
+{
+	//TODO
+}
+
+bool	Fixed::operator>=(Fixed const &f)
+{
+	//TODO
+}
+
+bool	Fixed::operator<=(Fixed const &f)
+{
+	//TODO
+}
+
+bool	Fixed::operator==(Fixed const &f)
+{
+	//TODO
+}
+
+bool	Fixed::operator!=(Fixed const &f)
+{
+	//TODO
+}
+
+
+Fixed	&Fixed::operator+(Fixed const &other)
+{
+	//TODO
+}
+
+Fixed	&Fixed::operator-(Fixed const &other)
+{
+	//TODO
+}
+
+Fixed	&Fixed::operator*(Fixed const &other)
+{
+	//TODO
+}
+
+Fixed	&Fixed::operator/(Fixed const &other)
+{
+	//TODO
+}
+
+
+void	Fixed::operator++(void)
+{
+	//TODO
+}
+
+void	Fixed::operator++(int i)
+{
+	//TODO
+}
+
+void	Fixed::operator--(void)
+{
+	//TODO
+}
+
+void	Fixed::operator--(int i)
+{
+	//TODO
+}
+
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	//TODO
+}
+
+Fixed	&Fixed::min(Fixed const &a, Fixed const &b)
+{
+	//TODO
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	//TODO
+}
+
+Fixed	&Fixed::max(Fixed const &a, Fixed const &b)
+{
+	//TODO
 }
 
