@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/25 14:04:18 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/25 14:34:38 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,8 +137,7 @@ float	Fixed::toFloat(void) const
 {
 	float	inFloat;
 
-	inFloat = m_rawBits;
-	inFloat /= (1 << m_fractionalBits);
+	inFloat = m_rawBits / (1 << m_fractionalBits);
 	return (inFloat);
 }
 
