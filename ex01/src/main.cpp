@@ -6,12 +6,22 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:51:59 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/23 20:00:39 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/25 14:14:38 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+/**
+ * @brief Entry point of the program demonstrating Fixed class functionality.
+ *
+ * This function creates several Fixed objects with different constructors,
+ * assigns values, and outputs their integer and floating-point
+ * representations to standard output. It serves as a test program for the
+ * Fixed class.
+ *
+ * @return Returns 0 upon successful execution.
+*/
 int main(void)
 {
 	Fixed a;
