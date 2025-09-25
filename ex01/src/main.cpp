@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:51:59 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/25 14:14:38 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/25 14:50:10 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ int main(void)
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
-	return 0;
+	return (0);
 }

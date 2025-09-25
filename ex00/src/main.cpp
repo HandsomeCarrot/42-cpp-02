@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:08:05 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/25 13:45:42 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/25 14:50:16 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int main(void)
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
 
-	return 0;
+	return (0);
 }
