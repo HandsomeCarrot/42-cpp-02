@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:15:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/26 13:32:35 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/26 13:34:53 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ public:
 	Fixed	&operator--(int);
 
 	static Fixed	&min(Fixed &a, Fixed &b);
-	static Fixed	&min(Fixed const &a, Fixed const &b);
+	static const Fixed	&min(Fixed const &a, Fixed const &b);
 	static Fixed	&max(Fixed &a, Fixed &b);
-	static Fixed	&max(Fixed const &a, Fixed const &b);
+	static const Fixed	&max(Fixed const &a, Fixed const &b);
 };
 
 //-----ex01-----//

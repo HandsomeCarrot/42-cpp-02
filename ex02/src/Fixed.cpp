@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/26 13:32:41 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/26 13:34:39 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,7 +266,7 @@ Fixed	&Fixed::min(Fixed &a, Fixed &b)
 	return (a < b ? a : b);
 }
 
-Fixed	&Fixed::min(Fixed const &a, Fixed const &b)
+Fixed const	&Fixed::min(Fixed const &a, Fixed const &b)
 {
 	return (a < b ? a : b);
 }
@@ -276,7 +276,7 @@ Fixed	&Fixed::max(Fixed &a, Fixed &b)
 	return (a > b ? a : b);
 }
 
-Fixed	&Fixed::max(Fixed const &a, Fixed const &b)
+Fixed const	&Fixed::max(Fixed const &a, Fixed const &b)
 {
 	return (a > b ? a : b);
 }
