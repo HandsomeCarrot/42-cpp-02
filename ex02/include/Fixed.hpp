@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:15:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/25 15:32:34 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/26 12:26:01 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ private:
 	 * @brief The raw value of the fixed-point number.
 	 */
 	int					m_rawBits;
+
 	/**
 	 * @brief The number of fractional bits.
 	 * @note This is a constant static member, set to 8.
@@ -62,17 +63,17 @@ public:
 
 	//-----ex02-----//
 
-	bool	operator>(Fixed const &f);
-	bool	operator<(Fixed const &f);
-	bool	operator>=(Fixed const &f);
-	bool	operator<=(Fixed const &f);
-	bool	operator==(Fixed const &f);
-	bool	operator!=(Fixed const &f);
+	bool	operator>(Fixed const &other);
+	bool	operator<(Fixed const &other);
+	bool	operator>=(Fixed const &other);
+	bool	operator<=(Fixed const &other);
+	bool	operator==(Fixed const &other);
+	bool	operator!=(Fixed const &other);
 
-	Fixed	&operator+(Fixed const &other);
-	Fixed	&operator-(Fixed const &other);
-	Fixed	&operator*(Fixed const &other);
-	Fixed	&operator/(Fixed const &other);
+	Fixed	operator+(Fixed const &other);
+	Fixed	operator-(Fixed const &other);
+	Fixed	operator*(Fixed const &other);
+	Fixed	operator/(Fixed const &other);
 
 	void	operator++(void);
 	void	operator++(int i);

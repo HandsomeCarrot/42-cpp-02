@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/25 15:32:45 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/26 12:53:01 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,53 +175,59 @@ std::ostream	&operator<<(std::ostream &os, Fixed const &f)
 
 //----------ex02----------//
 
-bool	Fixed::operator>(Fixed const &f)
+bool	Fixed::operator>(Fixed const &other)
+{
+	return (this->getRawBits() > other.getRawBits());
+}
+
+bool	Fixed::operator<(Fixed const &other)
+{
+	return (this->getRawBits() < other.getRawBits());
+}
+
+bool	Fixed::operator>=(Fixed const &other)
+{
+	return (this->getRawBits() >= other.getRawBits());
+}
+
+bool	Fixed::operator<=(Fixed const &other)
+{
+	return (this->getRawBits() <= other.getRawBits());
+}
+
+bool	Fixed::operator==(Fixed const &other)
+{
+	return (this->getRawBits() == other.getRawBits());
+}
+
+bool	Fixed::operator!=(Fixed const &other)
+{
+	return (this->getRawBits() != other.getRawBits());
+}
+
+
+Fixed	Fixed::operator+(Fixed const &other)
+{
+	Fixed	add;
+
+	add.setRawBits(this->getRawBits() + other.getRawBits());
+	return (add);
+}
+
+Fixed	Fixed::operator-(Fixed const &other)
+{
+	Fixed	subtract;
+
+	subtract.setRawBits(this->getRawBits() - other.getRawBits());
+	return (subtract);
+}
+
+Fixed	Fixed::operator*(Fixed const &other)
 {
 	//TODO
 }
 
-bool	Fixed::operator<(Fixed const &f)
-{
-	//TODO
-}
-
-bool	Fixed::operator>=(Fixed const &f)
-{
-	//TODO
-}
-
-bool	Fixed::operator<=(Fixed const &f)
-{
-	//TODO
-}
-
-bool	Fixed::operator==(Fixed const &f)
-{
-	//TODO
-}
-
-bool	Fixed::operator!=(Fixed const &f)
-{
-	//TODO
-}
-
-
-Fixed	&Fixed::operator+(Fixed const &other)
-{
-	//TODO
-}
-
-Fixed	&Fixed::operator-(Fixed const &other)
-{
-	//TODO
-}
-
-Fixed	&Fixed::operator*(Fixed const &other)
-{
-	//TODO
-}
-
-Fixed	&Fixed::operator/(Fixed const &other)
+Fixed	Fixed::operator/(Fixed const &other)
 {
 	//TODO
 }
