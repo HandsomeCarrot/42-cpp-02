@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:15:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/26 12:26:01 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/26 13:32:35 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,22 @@ public:
 
 	//-----ex02-----//
 
-	bool	operator>(Fixed const &other);
-	bool	operator<(Fixed const &other);
-	bool	operator>=(Fixed const &other);
-	bool	operator<=(Fixed const &other);
-	bool	operator==(Fixed const &other);
-	bool	operator!=(Fixed const &other);
+	bool	operator>(Fixed const &other) const;
+	bool	operator<(Fixed const &other) const;
+	bool	operator>=(Fixed const &other) const;
+	bool	operator<=(Fixed const &other) const;
+	bool	operator==(Fixed const &other) const;
+	bool	operator!=(Fixed const &other) const;
 
-	Fixed	operator+(Fixed const &other);
-	Fixed	operator-(Fixed const &other);
-	Fixed	operator*(Fixed const &other);
-	Fixed	operator/(Fixed const &other);
+	Fixed	operator+(Fixed const &other) const;
+	Fixed	operator-(Fixed const &other) const;
+	Fixed	operator*(Fixed const &other) const;
+	Fixed	operator/(Fixed const &other) const;
 
-	void	operator++(void);
-	void	operator++(int i);
-	void	operator--(void);
-	void	operator--(int i);
+	Fixed	&operator++(void);
+	Fixed	&operator++(int);
+	Fixed	&operator--(void);
+	Fixed	&operator--(int);
 
 	static Fixed	&min(Fixed &a, Fixed &b);
 	static Fixed	&min(Fixed const &a, Fixed const &b);

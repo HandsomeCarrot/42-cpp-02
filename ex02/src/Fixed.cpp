@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/26 12:53:01 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/26 13:32:41 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,10 +135,7 @@ Fixed::Fixed(float const number)
  */
 float	Fixed::toFloat(void) const
 {
-	float	inFloat;
-
-	inFloat = m_rawBits / (1 << m_fractionalBits);
-	return (inFloat);
+	return ((float)m_rawBits / (1 << m_fractionalBits));
 }
 
 /**
@@ -175,38 +172,38 @@ std::ostream	&operator<<(std::ostream &os, Fixed const &f)
 
 //----------ex02----------//
 
-bool	Fixed::operator>(Fixed const &other)
+bool	Fixed::operator>(Fixed const &other) const
 {
 	return (this->getRawBits() > other.getRawBits());
 }
 
-bool	Fixed::operator<(Fixed const &other)
+bool	Fixed::operator<(Fixed const &other) const
 {
 	return (this->getRawBits() < other.getRawBits());
 }
 
-bool	Fixed::operator>=(Fixed const &other)
+bool	Fixed::operator>=(Fixed const &other) const
 {
 	return (this->getRawBits() >= other.getRawBits());
 }
 
-bool	Fixed::operator<=(Fixed const &other)
+bool	Fixed::operator<=(Fixed const &other) const
 {
 	return (this->getRawBits() <= other.getRawBits());
 }
 
-bool	Fixed::operator==(Fixed const &other)
+bool	Fixed::operator==(Fixed const &other) const
 {
 	return (this->getRawBits() == other.getRawBits());
 }
 
-bool	Fixed::operator!=(Fixed const &other)
+bool	Fixed::operator!=(Fixed const &other) const
 {
 	return (this->getRawBits() != other.getRawBits());
 }
 
 
-Fixed	Fixed::operator+(Fixed const &other)
+Fixed	Fixed::operator+(Fixed const &other) const
 {
 	Fixed	add;
 
@@ -214,7 +211,7 @@ Fixed	Fixed::operator+(Fixed const &other)
 	return (add);
 }
 
-Fixed	Fixed::operator-(Fixed const &other)
+Fixed	Fixed::operator-(Fixed const &other) const
 {
 	Fixed	subtract;
 
@@ -222,55 +219,65 @@ Fixed	Fixed::operator-(Fixed const &other)
 	return (subtract);
 }
 
-Fixed	Fixed::operator*(Fixed const &other)
+Fixed	Fixed::operator*(Fixed const &other) const
 {
-	//TODO
+	Fixed	multiply;
+
+	multiply.setRawBits(this->getRawBits() * other.getRawBits());
+	return (multiply);
 }
 
-Fixed	Fixed::operator/(Fixed const &other)
+Fixed	Fixed::operator/(Fixed const &other) const
 {
-	//TODO
+	Fixed	divide;
+
+	divide.setRawBits(this->getRawBits() / other.getRawBits());
+	return (divide);
 }
 
 
-void	Fixed::operator++(void)
+Fixed	&Fixed::operator++(void)
 {
-	//TODO
+	++m_rawBits;
+	return (*this);
 }
 
-void	Fixed::operator++(int i)
+Fixed	&Fixed::operator++(int)
 {
-	//TODO
+	m_rawBits++;
+	return (*this);
 }
 
-void	Fixed::operator--(void)
+Fixed	&Fixed::operator--(void)
 {
-	//TODO
+	--m_rawBits;
+	return (*this);
 }
 
-void	Fixed::operator--(int i)
+Fixed	&Fixed::operator--(int)
 {
-	//TODO
+	m_rawBits--;
+	return (*this);
 }
 
 
 Fixed	&Fixed::min(Fixed &a, Fixed &b)
 {
-	//TODO
+	return (a < b ? a : b);
 }
 
 Fixed	&Fixed::min(Fixed const &a, Fixed const &b)
 {
-	//TODO
+	return (a < b ? a : b);
 }
 
 Fixed	&Fixed::max(Fixed &a, Fixed &b)
 {
-	//TODO
+	return (a > b ? a : b);
 }
 
 Fixed	&Fixed::max(Fixed const &a, Fixed const &b)
 {
-	//TODO
+	return (a > b ? a : b);
 }
 
