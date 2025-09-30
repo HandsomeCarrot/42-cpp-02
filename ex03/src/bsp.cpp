@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:03:26 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 15:39:29 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/30 18:04:25 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,10 @@
  * 			False otherwise. Thus, if the point is a vertex or on an edge,
  * 			it will return False
  */
-bool bsp( Point const a, Point const b, Point const c, Point const point)
-{}
+bool bsp(Point const a, Point const b, Point const c, Point const point)
+{
+	Point const	&minX = Point::minX((Point::minX(a, b)), c);
+	Point const	&maxX = Point::maxX((Point::maxX(a, b)), c);
+	Point const	&minY = Point::minY((Point::minY(a, b)), c);
+	Point const	&maxY = Point::maxY((Point::maxY(a, b)), c);
+}
