@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 14:47:54 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/30 14:58:23 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,6 +232,12 @@ Fixed	Fixed::operator*(Fixed const &other) const
 
 Fixed	Fixed::operator/(Fixed const &other) const
 {
+	if (other.getRawBits() == 0)
+	{
+		std::cout << "ERROR: denominator is 0 in divison" << std::endl;
+		return (Fixed(0));
+	}
+
 	Fixed	quotient;
 	int		newRawBits;
 	int		numerator;
