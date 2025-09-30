@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 14:58:23 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/30 16:32:57 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,37 +172,114 @@ std::ostream	&operator<<(std::ostream &os, Fixed const &f)
 
 //----------ex02----------//
 
+/**
+ * @brief Greater than comparison operator for Fixed objects.
+ *
+ * Compares the current Fixed object with another Fixed object by comparing
+ * their internal raw bit representations. This comparison is exact since
+ * it uses the underlying integer representation.
+ *
+ * @param other A constant reference to the Fixed object to compare against.
+ * @return true if the current object is greater than the other object,
+ *         false otherwise.
+ */
 bool	Fixed::operator>(Fixed const &other) const
 {
 	return (this->getRawBits() > other.getRawBits());
 }
 
+/**
+ * @brief Less than comparison operator for Fixed objects.
+ *
+ * Compares the current Fixed object with another Fixed object by comparing
+ * their internal raw bit representations. This comparison is exact since
+ * it uses the underlying integer representation.
+ *
+ * @param other A constant reference to the Fixed object to compare against.
+ * @return true if the current object is less than the other object,
+ *         false otherwise.
+ */
 bool	Fixed::operator<(Fixed const &other) const
 {
 	return (this->getRawBits() < other.getRawBits());
 }
 
+/**
+ * @brief Greater than or equal to comparison operator for Fixed objects.
+ *
+ * Compares the current Fixed object with another Fixed object by comparing
+ * their internal raw bit representations. This comparison is exact since
+ * it uses the underlying integer representation.
+ *
+ * @param other A constant reference to the Fixed object to compare against.
+ * @return true if the current object is greater than or equal to the other
+ *         object, false otherwise.
+ */
 bool	Fixed::operator>=(Fixed const &other) const
 {
 	return (this->getRawBits() >= other.getRawBits());
 }
 
+/**
+ * @brief Less than or equal to comparison operator for Fixed objects.
+ *
+ * Compares the current Fixed object with another Fixed object by comparing
+ * their internal raw bit representations. This comparison is exact since
+ * it uses the underlying integer representation.
+ *
+ * @param other A constant reference to the Fixed object to compare against.
+ * @return true if the current object is less than or equal to the other
+ *         object, false otherwise.
+ */
 bool	Fixed::operator<=(Fixed const &other) const
 {
 	return (this->getRawBits() <= other.getRawBits());
 }
 
+/**
+ * @brief Equality comparison operator for Fixed objects.
+ *
+ * Compares the current Fixed object with another Fixed object by comparing
+ * their internal raw bit representations. This comparison is exact since
+ * it uses the underlying integer representation.
+ *
+ * @param other A constant reference to the Fixed object to compare against.
+ * @return true if the current object is equal to the other object,
+ *         false otherwise.
+ */
 bool	Fixed::operator==(Fixed const &other) const
 {
 	return (this->getRawBits() == other.getRawBits());
 }
 
+/**
+ * @brief Inequality comparison operator for Fixed objects.
+ *
+ * Compares the current Fixed object with another Fixed object by comparing
+ * their internal raw bit representations. This comparison is exact since
+ * it uses the underlying integer representation.
+ *
+ * @param other A constant reference to the Fixed object to compare against.
+ * @return true if the current object is not equal to the other object,
+ *         false otherwise.
+ */
 bool	Fixed::operator!=(Fixed const &other) const
 {
 	return (this->getRawBits() != other.getRawBits());
 }
 
 
+/**
+ * @brief Addition operator for Fixed objects.
+ *
+ * Performs addition of two Fixed objects by adding their internal raw bit
+ * representations. Since both operands are in fixed-point format with the
+ * same fractional bits, the addition is direct without need for alignment.
+ *
+ * @param other A constant reference to the Fixed object to add to the
+ *              current object.
+ * @return A new Fixed object containing the sum of the two operands.
+ */
 Fixed	Fixed::operator+(Fixed const &other) const
 {
 	Fixed	sum;
@@ -211,6 +288,18 @@ Fixed	Fixed::operator+(Fixed const &other) const
 	return (sum);
 }
 
+/**
+ * @brief Subtraction operator for Fixed objects.
+ *
+ * Performs subtraction of two Fixed objects by subtracting their internal
+ * raw bit representations. Since both operands are in fixed-point format
+ * with the same fractional bits, the subtraction is direct without need
+ * for alignment.
+ *
+ * @param other A constant reference to the Fixed object to subtract from
+ *              the current object.
+ * @return A new Fixed object containing the difference of the two operands.
+ */
 Fixed	Fixed::operator-(Fixed const &other) const
 {
 	Fixed	difference;
@@ -219,6 +308,18 @@ Fixed	Fixed::operator-(Fixed const &other) const
 	return (difference);
 }
 
+/**
+ * @brief Multiplication operator for Fixed objects.
+ *
+ * Performs multiplication of two Fixed objects by multiplying their
+ * internal raw bit representations and then adjusting the result by
+ * shifting right by the number of fractional bits to maintain the correct
+ * fixed-point scale.
+ *
+ * @param other A constant reference to the Fixed object to multiply with
+ *              the current object.
+ * @return A new Fixed object containing the product of the two operands.
+ */
 Fixed	Fixed::operator*(Fixed const &other) const
 {
 	Fixed	product;
@@ -230,6 +331,19 @@ Fixed	Fixed::operator*(Fixed const &other) const
 	return (product);
 }
 
+/**
+ * @brief Division operator for Fixed objects.
+ *
+ * Performs division of two Fixed objects by first checking for division by
+ * zero, then performing the division operation with proper scaling to
+ * maintain the fixed-point format. The numerator is shifted left to
+ * increase precision before division.
+ *
+ * @param other A constant reference to the Fixed object to divide by.
+ * @return A new Fixed object containing the quotient of the two operands.
+ * @warning If the denominator is zero, an error message is printed and
+ *          a Fixed object with value 0 is returned.
+ */
 Fixed	Fixed::operator/(Fixed const &other) const
 {
 	if (other.getRawBits() == 0)
@@ -249,12 +363,32 @@ Fixed	Fixed::operator/(Fixed const &other) const
 }
 
 
+/**
+ * @brief Prefix increment operator for Fixed objects.
+ *
+ * Increments the Fixed object by the smallest representable unit (1 in
+ * the raw bit representation) and returns a reference to the modified
+ * object. This operation increases the value by 1/256 (since there are
+ * 8 fractional bits).
+ *
+ * @return A reference to the current object after incrementing.
+ */
 Fixed	&Fixed::operator++(void)
 {
 	++m_rawBits;
 	return (*this);
 }
 
+/**
+ * @brief Postfix increment operator for Fixed objects.
+ *
+ * Increments the Fixed object by the smallest representable unit (1 in
+ * the raw bit representation) but returns a copy of the object before the
+ * increment. This operation increases the value by 1/256 (since there are
+ * 8 fractional bits).
+ *
+ * @return A copy of the object before incrementing.
+ */
 Fixed	Fixed::operator++(int)
 {
 	Fixed temp(*this);
@@ -262,12 +396,32 @@ Fixed	Fixed::operator++(int)
 	return (temp);
 }
 
+/**
+ * @brief Prefix decrement operator for Fixed objects.
+ *
+ * Decrements the Fixed object by the smallest representable unit (1 in
+ * the raw bit representation) and returns a reference to the modified
+ * object. This operation decreases the value by 1/256 (since there are
+ * 8 fractional bits).
+ *
+ * @return A reference to the current object after decrementing.
+ */
 Fixed	&Fixed::operator--(void)
 {
 	--m_rawBits;
 	return (*this);
 }
 
+/**
+ * @brief Postfix decrement operator for Fixed objects.
+ *
+ * Decrements the Fixed object by the smallest representable unit (1 in
+ * the raw bit representation) but returns a copy of the object before the
+ * decrement. This operation decreases the value by 1/256 (since there are
+ * 8 fractional bits).
+ *
+ * @return A copy of the object before decrementing.
+ */
 Fixed	Fixed::operator--(int)
 {
 	Fixed temp(*this);
@@ -276,21 +430,65 @@ Fixed	Fixed::operator--(int)
 }
 
 
+/**
+ * @brief Finds the minimum of two Fixed objects (non-const version).
+ *
+ * Compares two Fixed objects and returns a reference to the one with the
+ * smaller value. This version operates on non-const references, allowing
+ * modification of the returned object.
+ *
+ * @param a Reference to the first Fixed object to compare.
+ * @param b Reference to the second Fixed object to compare.
+ * @return A reference to the smaller of the two Fixed objects.
+ */
 Fixed	&Fixed::min(Fixed &a, Fixed &b)
 {
 	return (a < b ? a : b);
 }
 
+/**
+ * @brief Finds the minimum of two Fixed objects (const version).
+ *
+ * Compares two Fixed objects and returns a reference to the one with the
+ * smaller value. This version operates on const references, preventing
+ * modification of the returned object.
+ *
+ * @param a Constant reference to the first Fixed object to compare.
+ * @param b Constant reference to the second Fixed object to compare.
+ * @return A constant reference to the smaller of the two Fixed objects.
+ */
 Fixed const	&Fixed::min(Fixed const &a, Fixed const &b)
 {
 	return (a < b ? a : b);
 }
 
+/**
+ * @brief Finds the maximum of two Fixed objects (non-const version).
+ *
+ * Compares two Fixed objects and returns a reference to the one with the
+ * larger value. This version operates on non-const references, allowing
+ * modification of the returned object.
+ *
+ * @param a Reference to the first Fixed object to compare.
+ * @param b Reference to the second Fixed object to compare.
+ * @return A reference to the larger of the two Fixed objects.
+ */
 Fixed	&Fixed::max(Fixed &a, Fixed &b)
 {
 	return (a > b ? a : b);
 }
 
+/**
+ * @brief Finds the maximum of two Fixed objects (const version).
+ *
+ * Compares two Fixed objects and returns a reference to the one with the
+ * larger value. This version operates on const references, preventing
+ * modification of the returned object.
+ *
+ * @param a Constant reference to the first Fixed object to compare.
+ * @param b Constant reference to the second Fixed object to compare.
+ * @return A constant reference to the larger of the two Fixed objects.
+ */
 Fixed const	&Fixed::max(Fixed const &a, Fixed const &b)
 {
 	return (a > b ? a : b);
