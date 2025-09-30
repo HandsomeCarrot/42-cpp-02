@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 13:49:16 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/30 14:47:54 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,34 +205,41 @@ bool	Fixed::operator!=(Fixed const &other) const
 
 Fixed	Fixed::operator+(Fixed const &other) const
 {
-	Fixed	add;
+	Fixed	sum;
 
-	add.setRawBits(this->getRawBits() + other.getRawBits());
-	return (add);
+	sum.setRawBits(this->getRawBits() + other.getRawBits());
+	return (sum);
 }
 
 Fixed	Fixed::operator-(Fixed const &other) const
 {
-	Fixed	subtract;
+	Fixed	difference;
 
-	subtract.setRawBits(this->getRawBits() - other.getRawBits());
-	return (subtract);
+	difference.setRawBits(this->getRawBits() - other.getRawBits());
+	return (difference);
 }
 
 Fixed	Fixed::operator*(Fixed const &other) const
 {
-	Fixed	multiply;
+	Fixed	product;
+	int		newRawBits;
 
-	multiply.setRawBits((this->getRawBits() * other.getRawBits()) >> this->m_fractionalBits);
-	return (multiply);
+	newRawBits = this->getRawBits() * other.getRawBits();
+	newRawBits = newRawBits >> this->m_fractionalBits;
+	product.setRawBits(newRawBits);
+	return (product);
 }
 
 Fixed	Fixed::operator/(Fixed const &other) const
 {
-	Fixed	divide;
+	Fixed	quotient;
+	int		newRawBits;
+	int		numerator;
 
-	divide.setRawBits((this->getRawBits() / other.getRawBits()) << this->m_fractionalBits);
-	return (divide);
+	numerator = this->getRawBits() << this->m_fractionalBits;
+	newRawBits = numerator / other.getRawBits();
+	quotient.setRawBits(newRawBits);
+	return (quotient);
 }
 
 
