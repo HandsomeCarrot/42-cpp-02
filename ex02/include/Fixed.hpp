@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:15:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/26 13:34:53 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/30 13:35:09 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ public:
 	Fixed	operator/(Fixed const &other) const;
 
 	Fixed	&operator++(void);
-	Fixed	&operator++(int);
+	Fixed	operator++(int);
 	Fixed	&operator--(void);
-	Fixed	&operator--(int);
+	Fixed	operator--(int);
 
 	static Fixed	&min(Fixed &a, Fixed &b);
 	static const Fixed	&min(Fixed const &a, Fixed const &b);
