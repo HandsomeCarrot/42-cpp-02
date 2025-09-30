@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:03:08 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 17:01:07 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/30 17:58:15 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,33 @@ Point::Point(Point const &other) :
  */
 Point::~Point(void)
 {}
+
+Fixed const	&Point::getX(void) const
+{
+	return (m_x);
+}
+
+Fixed const	&Point::getY(void) const
+{
+	return (m_y);
+}
+
+Point const	&Point::minX(Point const &p1, Point const &p2) const
+{
+	return (p1.getX() < p2.getX() ? p1 : p2);
+}
+
+Point const	&Point::maxX(Point const &p1, Point const &p2) const
+{
+	return (p1.getX() > p2.getX() ? p1 : p2);
+}
+
+Point const	&Point::minY(Point const &p1, Point const &p2) const
+{
+	return (p1.getY() < p2.getY() ? p1 : p2);
+}
+
+Point const	&Point::maxY(Point const &p1, Point const &p2) const
+{
+	return (p1.getY() > p2.getY() ? p1 : p2);
+}

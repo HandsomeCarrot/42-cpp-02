@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:02:42 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 17:01:55 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/30 17:58:11 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,17 @@ public:
 	Point(Fixed const &x, Fixed const &y);
 	Point(Point const &other);
 
-	//Point	&operator=(Point const &other); //should it be here? vars are const, so you can not assign new values.
-
 	~Point(void);
 
+	//Point	&operator=(Point const &other); //should it be here? vars are const, so you can not assign new values.
+
+	Fixed const	&getX(void) const;
+	Fixed const	&getY(void) const;
+
+	Point const	&minX(Point const &p1, Point const &p2) const;
+	Point const	&maxX(Point const &p1, Point const &p2) const;
+
+	Point const	&minY(Point const &p1, Point const &p2) const;
+	Point const	&maxY(Point const &p1, Point const &p2) const;
 };
 #endif
