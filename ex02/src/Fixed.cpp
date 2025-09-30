@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 13:35:04 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/09/30 13:49:16 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,7 +223,7 @@ Fixed	Fixed::operator*(Fixed const &other) const
 {
 	Fixed	multiply;
 
-	multiply.setRawBits(this->getRawBits() * other.getRawBits());
+	multiply.setRawBits((this->getRawBits() * other.getRawBits()) >> this->m_fractionalBits);
 	return (multiply);
 }
 
@@ -231,7 +231,7 @@ Fixed	Fixed::operator/(Fixed const &other) const
 {
 	Fixed	divide;
 
-	divide.setRawBits(this->getRawBits() / other.getRawBits());
+	divide.setRawBits((this->getRawBits() / other.getRawBits()) << this->m_fractionalBits);
 	return (divide);
 }
 
