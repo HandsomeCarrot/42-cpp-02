@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/26 13:27:39 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 16:31:36 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	Fixed::setRawBits(int const raw)
 Fixed::Fixed(int const number)
 {
 	std::cout << "Int constructor called" << std::endl;
-	setRawBits(number << 8);
+	setRawBits(number << m_fractionalBits);
 }
 
 /**
@@ -150,7 +150,7 @@ float	Fixed::toFloat(void) const
  */
 int	Fixed::toInt(void) const
 {
-	return (m_rawBits >> 8);
+	return (m_rawBits >> m_fractionalBits);
 }
 
 /**
