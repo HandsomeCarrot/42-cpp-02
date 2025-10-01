@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:03:26 by vpoka             #+#    #+#             */
-/*   Updated: 2025/10/01 14:25:54 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 14:43:24 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,37 +50,51 @@ static Point	calcVector(Point const &a, Point const &b)
 }
 
 /**
- * @brief Calculates the relative position of point p with respect to the directed line segment ab.
+ * @brief Determines the relative position of point p with respect to the directed line segment ab.
  *
- * This function computes the cross product of vectors AB and AP, where:
- *   - AB is the vector from point a to point b
- *   - AP is the vector from point a to point p
- * The sign of the result indicates which side of the line AB the point p lies on:
- *   - Positive: p is on one side of AB
- *   - Negative: p is on the other side of AB
- *   - Zero: p is colinear with AB
+ * Calculates the side on which point p lies relative to the directed line from point a to point b.
+ * Uses the cross product of vectors ab and ap to determine the orientation:
+ *   - Returns 1 if p is to the left of ab,
+ *   - Returns -1 if p is to the right of ab,
+ *   - Returns 0 if p is colinear with ab.
  *
- * @param a The starting point of the line segment.
- * @param b The ending point of the line segment.
+ * @param a The starting point of the directed line segment.
+ * @param b The ending point of the directed line segment.
  * @param p The point to test.
- * @return int The signed value indicating the side of p relative to AB.
+ * @return int 1 if p is to the left, -1 if to the right, 0 if colinear.
  */
 int	calcPointSide(Point const &a, Point const &b, Point const &p)
 {
 	Point	abVector = calcVector(a, b);
 	Point	apVector = calcVector(a, p);
 
-	return (calcCrossProduct(abVector, apVector).toInt());
+	int	pointSide = calcCrossProduct(abVector, apVector).toInt();
+	return ((pointSide > 0) - (pointSide < 0));
 }
 
 /**
- * @param a, b, c	the vertices of our beloved triangle
- * @param point	the point to check
- * @return	True if the point is inside the triangle.
- * 			False otherwise. Thus, if the point is a vertex or on an edge,
- * 			it will return False
+ * @brief Determines if a point lies inside the triangle defined by points a, b, and c.
+ *
+ * This function uses the concept of point side calculation to check if the given point
+ * is strictly inside the triangle (not on the edge or vertex). It returns true if the
+ * point is inside, and false otherwise.
+ *
+ * @param a First vertex of the triangle.
+ * @param b Second vertex of the triangle.
+ * @param c Third vertex of the triangle.
+ * @param point The point to test for inclusion within the triangle.
+ * @return true if the point is inside the triangle, false otherwise.
  */
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	
+	int	pointSide;
+
+	pointSide = calcPointSide(a, b, point);
+	if (!pointSide)
+		return (false);
+	if (calcPointSide(b, c, point) != pointSide)
+		return (false);
+	if (calcPointSide(c, a, point) != pointSide)
+		return (false);
+	return (true);
 }
