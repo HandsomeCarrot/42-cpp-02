@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:02:42 by vpoka             #+#    #+#             */
-/*   Updated: 2025/10/01 14:47:23 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 15:43:38 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ public:
 };
 
 std::ostream	&operator<<(std::ostream &os, Point const &p);
+
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

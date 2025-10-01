@@ -6,11 +6,11 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 14:43:56 by vpoka             #+#    #+#             */
-/*   Updated: 2025/10/01 15:32:12 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 15:43:52 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsp.cpp"
+#include "Point.hpp"
 
 /**
  * @brief Tests if a point lies inside a triangle.
