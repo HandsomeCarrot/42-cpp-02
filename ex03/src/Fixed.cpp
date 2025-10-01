@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:34:07 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 16:33:26 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 15:05:55 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 Fixed::Fixed(void) :
 	m_rawBits(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	//std::cout << "Default constructor called" << std::endl;
 }
 
 /**
@@ -36,7 +36,7 @@ Fixed::Fixed(void) :
  */
 Fixed::Fixed(Fixed const &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -48,7 +48,7 @@ Fixed::Fixed(Fixed const &other)
  */
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 /**
@@ -62,7 +62,7 @@ Fixed::~Fixed(void)
  */
 Fixed &Fixed::operator=(Fixed const &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	this->setRawBits(other.getRawBits());
 	return (*this);
 }
@@ -101,7 +101,7 @@ void	Fixed::setRawBits(int const raw)
  */
 Fixed::Fixed(int const number)
 {
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << std::endl;
 	setRawBits(number << 8);
 }
 
@@ -119,7 +119,7 @@ Fixed::Fixed(float const number)
 {
 	int	rawBits;
 
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << std::endl;
 	rawBits = roundf(number * (1 << m_fractionalBits));
 	setRawBits(rawBits);
 }
