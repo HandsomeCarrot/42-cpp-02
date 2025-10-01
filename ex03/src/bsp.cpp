@@ -6,11 +6,48 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:03:26 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 18:04:25 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 12:18:08 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+
+/**
+ * @brief Calculates the 2D cross product (also known as the vector product) of two vectors.
+ *
+ * This function computes the scalar value of the cross product between two 2D vectors,
+ * represented as Point objects. The result is useful for determining the orientation
+ * of the vectors (e.g., clockwise or counterclockwise) and for area calculations.
+ *
+ * @param vectorA The first vector as a Point object.
+ * @param vectorB The second vector as a Point object.
+ * @return Fixed The scalar value of the cross product.
+ */
+Fixed	calcCrossProduct(Point const &vectorA, Point const &vectorB)
+{
+	return (Fixed((vectorA.getX() * vectorB.getY()) - (vectorA.getY() * vectorB.getX())));
+}
+
+/**
+ * @brief Calculates the vector from point a to point b.
+ *
+ * Given two points a and b, this function computes the vector (as a Point)
+ * that represents the displacement from a to b by subtracting the coordinates
+ * of a from those of b.
+ *
+ * @param a The starting point.
+ * @param b The ending point.
+ * @return Point The vector from a to b.
+ */
+Point	calcVector(Point const &a, Point const &b)
+{
+	Fixed	x, y;
+
+	x = b.getX() - a.getX();
+	y = b.getY() - a.getY();
+
+	return (Point(x, y));
+}
 
 /**
  * @param a, b, c	the vertices of our beloved triangle
@@ -21,8 +58,5 @@
  */
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	Point const	&minX = Point::minX((Point::minX(a, b)), c);
-	Point const	&maxX = Point::maxX((Point::maxX(a, b)), c);
-	Point const	&minY = Point::minY((Point::minY(a, b)), c);
-	Point const	&maxY = Point::maxY((Point::maxY(a, b)), c);
+	
 }

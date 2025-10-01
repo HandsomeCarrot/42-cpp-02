@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:02:42 by vpoka             #+#    #+#             */
-/*   Updated: 2025/09/30 18:02:27 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 12:01:08 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ public:
 
 	Fixed const	&getX(void) const;
 	Fixed const	&getY(void) const;
-
-	Point static const	&minX(Point const &p1, Point const &p2);
-	Point static const	&maxX(Point const &p1, Point const &p2);
-
-	Point static const	&minY(Point const &p1, Point const &p2);
-	Point static const	&maxY(Point const &p1, Point const &p2);
 };
+
 #endif
