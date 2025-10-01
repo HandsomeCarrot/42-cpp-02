@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:03:08 by vpoka             #+#    #+#             */
-/*   Updated: 2025/10/01 12:00:55 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 14:50:34 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,10 @@ Fixed const	&Point::getX(void) const
 Fixed const	&Point::getY(void) const
 {
 	return (m_y);
+}
+
+std::ostream	&operator<<(std::ostream &os, Point const &p)
+{
+	os << "x:" << p.getX() << " y:" << p.getY();
+	return (os);
 }

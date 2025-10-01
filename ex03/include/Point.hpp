@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:02:42 by vpoka             #+#    #+#             */
-/*   Updated: 2025/10/01 12:01:08 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 14:47:23 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define POINT_HPP
 
 # include "Fixed.hpp"
+# include <iostream>
 
 class Point
 {
@@ -35,5 +36,7 @@ public:
 	Fixed const	&getX(void) const;
 	Fixed const	&getY(void) const;
 };
+
+std::ostream	&operator<<(std::ostream &os, Point const &p);
 
 #endif
