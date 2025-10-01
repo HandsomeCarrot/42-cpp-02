@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:03:26 by vpoka             #+#    #+#             */
-/*   Updated: 2025/10/01 14:43:24 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/10/01 16:33:49 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	calcPointSide(Point const &a, Point const &b, Point const &p)
 	Point	abVector = calcVector(a, b);
 	Point	apVector = calcVector(a, p);
 
-	int	pointSide = calcCrossProduct(abVector, apVector).toInt();
-	return ((pointSide > 0) - (pointSide < 0));
+	Fixed	pointSide = calcCrossProduct(abVector, apVector).toInt();
+	return ((pointSide > Fixed(0)) - (pointSide < Fixed(0)));
 }
 
 /**
