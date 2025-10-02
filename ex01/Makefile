@@ -6,7 +6,7 @@
 #    By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/23 13:20:15 by vpoka             #+#    #+#              #
-#    Updated: 2025/10/02 15:27:08 by vpoka            ###   ########.fr        #
+#    Updated: 2025/10/02 20:33:10 by vpoka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,27 +47,27 @@ all: $(NAME)
 
 $(B):
 	@ mkdir -p $(B)
-	@ echo "$(YELLOW)$(NAME): compiling...$(RST)"
+	@ printf "$(YELLOW)$(NAME): compiling...$(RST)\n"
 
 $(B)/%.o: $(S)/%.cpp
 	$(COMP) -c $< -o $@
 
 $(NAME): $(B) $(OBJS)
 	$(COMP) $(OBJS) -o $(NAME)
-	@ echo "$(GREEN)$(NAME) built successfully!$(RST)"
+	@ printf "$(GREEN)$(NAME) built successfully!$(RST)\n"
 
 clean:
 	@ rm -rf $(B)
-	@ echo "$(RED)deleted BUILD files$(RST)"
+	@ printf "$(RED)deleted BUILD files$(RST)\n"
 
 fclean: clean
 	@ rm -f $(NAME)
-	@ echo "$(RED)deleted PROGRAM file$(RST)"
+	@ printf "$(RED)deleted PROGRAM file$(RST)\n"
 
 re: fclean all
 
 run: re
-	@ echo "$(CYAN)$(NAME): starting...$(RST)"
+	@ printf "$(CYAN)$(NAME): starting...$(RST)\n"
 	@ ./$(NAME)
 
 .PHONY: all clean fclean re run
