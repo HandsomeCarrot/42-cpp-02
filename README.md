@@ -13,9 +13,7 @@ A C++98 project from the 42 curriculum focused on fixed-point arithmetic, operat
 - [Technical constraints](#technical-constraints)
 - [Repository structure](#repository-structure)
 - [Focus areas by exercise](#focus-areas-by-exercise)
-- [Troubleshooting](#troubleshooting)
 - [Status](#status)
-- [License](#license)
 
 ## Description
 
